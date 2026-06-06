@@ -76,8 +76,7 @@ export class MCPProxy {
           tools: { listChanged: true },
           prompts: { listChanged: true },
           resources: { subscribe: true, listChanged: true },
-          completion: { argument: true },
-          sampling: {}
+          completions: {}
         }
       }
     );
@@ -159,10 +158,6 @@ export class MCPProxy {
       },
       {
         capabilities: {
-          tools: {},
-          prompts: {},
-          resources: {},
-          completion: {},
           sampling: {}
         }
       }
@@ -425,6 +420,7 @@ export class MCPProxy {
 
     process.on('SIGINT', () => this.handleShutdown('SIGINT'));
     process.on('SIGTERM', () => this.handleShutdown('SIGTERM'));
+    process.stdin.on('end', () => this.handleShutdown('stdin EOF'));
   }
 
   /**

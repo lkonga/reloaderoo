@@ -247,6 +247,7 @@ Examples:
         
         process.on('SIGINT', () => shutdown('SIGINT'));
         process.on('SIGTERM', () => shutdown('SIGTERM'));
+        process.stdin.on('end', () => shutdown('stdin EOF'));
         
         // Start proxy
         await proxyInstance.start();

@@ -64,7 +64,7 @@
     "inspector:inspect": "npm run build && npm run inspector node 'dist/bin/reloaderoo.js inspect mcp -- node test-server-sdk.js'"
   },
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.12.3",
+    "@modelcontextprotocol/sdk": "^1.29.0",
     "commander": "^12.1.0",
     "cross-spawn": "^7.0.3",
     "pino": "^9.4.0",
