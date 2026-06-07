@@ -116,9 +116,7 @@ export class MCPProxy {
             name: 'reloaderoo',
             version: '1.0.0'
         }, {
-            capabilities: {
-                sampling: {}
-            }
+            capabilities: {}
         });
         // Connect to child via stdio
         await this.childClient.connect(this.childTransport);

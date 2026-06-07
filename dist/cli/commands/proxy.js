@@ -117,11 +117,13 @@ Examples:
                 process.exit(1);
             }
             // Build proxy configuration
+            // Strip proxy vars from child env to prevent loops (proxy handles its own routing)
+            const { HTTPS_PROXY, https_proxy, HTTP_PROXY, http_proxy, ALL_PROXY, all_proxy, NO_PROXY, no_proxy, ...childEnv } = process.env;
             const proxyConfig = {
                 childCommand: cmdValidation.path || childCommand,
                 childArgs,
                 workingDirectory: resolve(options.workingDir),
-                environment: process.env,
+                environment: childEnv,
                 restartLimit: maxRestarts,
                 operationTimeout: restartTimeout,
                 logLevel: options.logLevel,

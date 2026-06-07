@@ -157,9 +157,7 @@ export class MCPProxy {
         version: '1.0.0'
       },
       {
-        capabilities: {
-          sampling: {}
-        }
+        capabilities: {}
       }
     );
 
